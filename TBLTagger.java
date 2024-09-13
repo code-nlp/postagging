@@ -57,9 +57,7 @@ public class TBLTagger {
     public static void applyTransformationRules(List<TaggedWord> taggedSentence, List<TransformationRule> rules) {
         for (int i = 0; i < taggedSentence.size(); i++) {
             for (TransformationRule rule : rules) {
-                if (rule.matches(taggedSentence, i)) {
-                    rule.apply(taggedSentence, i);
-                }
+                rule.applyRule(taggedSentence, i);
             }
         }
     }
@@ -68,7 +66,7 @@ public class TBLTagger {
         // Sample sentence
         // The quick brown fox jumps over the lazy dog
         // separating words 
-        List<String> sentenceSeparatingWords = List.of("The_quick_brown_fox", "jumps", "over", "the_lazy_dog");
+        List<String> sentenceSeparatingWords = List.of("The","quick", "brown", "fox", "jumps", "over", "the","lazy","dog");
 
         // Step 1: Initial tagging
         List<TaggedWord> taggedSentence = initialTagging(sentenceSeparatingWords);
@@ -77,9 +75,9 @@ public class TBLTagger {
         List<TransformationRule> rules = new ArrayList<>();
         rules.add(new TransformationRule("NN", "DT", "NN"));  // If a noun follows another noun, change it to determiner (simplified rule)
         rules.add(new TransformationRule("NN", "VB", "DT"));  // If a noun follows a determiner, change it to verb (simplified rule)
-        rules.add(new TransformationRule("JJ", "NN", "VB"));
-        rules.add(new TransformationRule("DT", "VB", "NN"));
-        rules.add(new TransformationRule("NN", "JJ", "VB"));
+        //rules.add(new TransformationRule("DT", "NN", "VB"));
+        //rules.add(new TransformationRule("DT", "VB", "NN"));
+        //rules.add(new TransformationRule("NN", "JJ", "VB"));
         
         // Step 3: Apply transformation rules
         applyTransformationRules(taggedSentence, rules);
