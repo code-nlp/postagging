@@ -57,7 +57,7 @@ public class TBLTagger {
     public static void applyTransformationRules(List<TaggedWord> taggedSentence, List<TransformationRule> rules) {
         for (int i = 0; i < taggedSentence.size(); i++) {
             for (TransformationRule rule : rules) {
-                rule.applyRule(taggedSentence, i);
+                rule.applySimpleRule(taggedSentence, i);
             }
         }
     }
