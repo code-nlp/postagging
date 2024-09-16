@@ -15,11 +15,10 @@ public class TransformationRule {
 
     public void applySimpleRule(List<TaggedWord> sentence, int index) {
         // Basic rule: If the current word is tagged as 'posTagged' and the context condition is satisfied, apply the rule
-        if (sentence.get(index).posTag.equals(posTagged)) {
-            // Example condition: the previous word must have a specific tag, contextTagged
-            if (index > 0 && sentence.get(index - 1).posTag.equals(contextTagged)) {
-                sentence.get(index).posTag = this.correctTag;
-            }
+        // Example condition: the previous word must have a specific tag, contextTagged
+        if (sentence.get(index).posTag.equals(posTagged) && 
+        (index > 0 && sentence.get(index - 1).posTag.equals(contextTagged))) {
+            sentence.get(index).posTag = this.correctTag;
         }
     }
     
