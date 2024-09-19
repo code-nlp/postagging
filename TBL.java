@@ -78,10 +78,9 @@ public class TBL {
         // Câu cần gắn nhãn
         String[] sentence1 = {"The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"};
         String[] sentence2 = {"A", "fast", "blue", "cat", "runs", "under", "a", "sleepy", "tree"};
-        // Câu chưa gán nhãn.
-        String[] sentence3 = {"The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"};
-        String[] sentence4 = {"A", "fast", "blue", "cat", "runs", "under", "a", "sleepy", "tree"};
-        String[] sentence5 = {"A", "fast", "red", "cat", "kick", "under", "a",  "tree"};
+
+        String[] sentence3 = {"A", "fast", "red", "cat", "kick", "under", "a",  "tree"};
+        String[] sentence4 = {"A", "fast", "blue", "cat", "runs", "under", "a", "sleepy", "red", "tree"};
  
         // Gắn nhãn ban đầu
         List<List<TaggedWord>> taggedSentences = new ArrayList<>();
@@ -89,7 +88,7 @@ public class TBL {
         taggedSentences.add(initialTagging(sentence2));
         taggedSentences.add(initialTagging(sentence3));
         taggedSentences.add(initialTagging(sentence4));
-        taggedSentences.add(initialTagging(sentence5));
+        
 
         // Tập dữ liệu huấn luyện với nhãn đúng (gold standard)
         List<List<TaggedWord>> goldSentences = new ArrayList<>();
